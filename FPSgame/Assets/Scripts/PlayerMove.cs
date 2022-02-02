@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     CharacterController cc; //캐릭터 콘트롤러 변수
     float gravity = -20f; //중력 변수
     float yVelocity = 0; //수직 속력 변수
+    public float jumpPower = 10f; //점프력 변수
 
     void Start()
     {
@@ -28,7 +29,14 @@ public class PlayerMove : MonoBehaviour
         //2-1. 메인 카메라를 기준으로 방향 변환
         dir = Camera.main.transform.TransformDirection(dir);
 
-        //2-2. 캐릭터 수직 속도에 중력 값을 적용
+        //2-2. 점프 구현
+        if(Input.GetButtonDown("Jump"))
+        {
+            //캐릭터 수직 속도에 점프력 적용
+            yVelocity = jumpPower;
+        }
+
+        //2-3. 캐릭터 수직 속도에 중력 값을 적용
         yVelocity += gravity * Time.deltaTime;
         dir.y = yVelocity;
 
