@@ -51,6 +51,9 @@ public class PlayerFire : MonoBehaviour
                 //피격 이펙트의 위치를 레이가 부딪힌 지점으로 이동
                 bulletEffect.transform.position = hitInfo.point;
 
+                //피격 이펙트의 forward 방향을 레이가 부딪힌 지점의 법선 벡터와 일치시킨다
+                bulletEffect.transform.forward = hitInfo.normal;
+
                 //피격 이펙트 플레이
                 ps.Play();
             }
