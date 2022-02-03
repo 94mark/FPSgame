@@ -1029,6 +1029,7 @@ GameObject:
   - component: {fileID: 1517547559}
   - component: {fileID: 1517547558}
   - component: {fileID: 1517547557}
+  - component: {fileID: 1517547560}
   m_Layer: 5
   m_Name: Enemy HP Bar
   m_TagString: Untagged
@@ -1117,6 +1118,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1517547560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517547555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731bcbb35b4184c4b8ad66ead40a94ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1082184964}
 --- !u!1 &1542653140
 GameObject:
   m_ObjectHideFlags: 0
