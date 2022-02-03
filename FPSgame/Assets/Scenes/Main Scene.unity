@@ -844,6 +844,7 @@ MonoBehaviour:
   attackPower: 3
   moveDistance: 20
   hp: 15
+  hpSlider: {fileID: 1217894895}
 --- !u!143 &1182414614
 CharacterController:
   m_ObjectHideFlags: 0

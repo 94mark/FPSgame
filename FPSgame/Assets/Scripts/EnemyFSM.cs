@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyFSM : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class EnemyFSM : MonoBehaviour
     public float moveDistance = 20f; //이동 가능 범위
     public int hp = 15; //에너미의 체력
     int maxHp = 15; //에너미의 최대 체력
+    public Slider hpSlider; //에너미 hp Slider 변수
 
 
     void Start()
@@ -69,6 +71,9 @@ public class EnemyFSM : MonoBehaviour
                 //Die();
                 break;
         }
+
+        //현재 hp(%)를 hp 슬라이더의 value에 반영
+        hpSlider.value = (float)hp / (float)maxHp;
     }
 
     void Idle()
