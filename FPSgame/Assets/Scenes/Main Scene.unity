@@ -1451,6 +1451,7 @@ MonoBehaviour:
   jumpPower: 10
   isJumping: 0
   hp: 20
+  hpSlider: {fileID: 1627704566}
 --- !u!114 &1854805928
 MonoBehaviour:
   m_ObjectHideFlags: 0
