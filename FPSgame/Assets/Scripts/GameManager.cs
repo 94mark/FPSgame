@@ -77,10 +77,8 @@ public class GameManager : MonoBehaviour
             gameLabel.SetActive(true);
             //상태 텍스트의 내용을 Game Over로 한다
             gameText.text = "Game Over";
-
             //상태 텍스트의 색상을 붉은색으로 한다
             gameText.color = new Color32(255, 0, 0, 255);
-
             //상태를 '게임 오버' 상태로 변경
             gState = GameState.GameOver;
         }
