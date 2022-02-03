@@ -647,7 +647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &849030014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1808,6 +1808,7 @@ MonoBehaviour:
   isJumping: 0
   hp: 20
   hpSlider: {fileID: 1627704566}
+  hitEffect: {fileID: 849030013}
 --- !u!114 &1854805928
 MonoBehaviour:
   m_ObjectHideFlags: 0
