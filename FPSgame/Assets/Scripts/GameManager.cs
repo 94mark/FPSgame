@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     Text gameText;
     //게임 상태 UI 오브젝트 변수
     public GameObject gameLabel;
+    //PlayerMove 클래스 변수
+    PlayerMove player;
 
     void Start()
     {
@@ -47,6 +49,9 @@ public class GameManager : MonoBehaviour
 
         //게임 준비 -> 게임 중 상태로 전환
         StartCoroutine(ReadyToStart());
+
+        //플레이어 오브젝트를 찾은 후 플레이어의 PlayerMove 컴포넌트 받아오기
+        player = GameObject.Find("Player").GetComponent<PlayerMove>();
     }
 
     IEnumerator ReadyToStart()
@@ -61,5 +66,23 @@ public class GameManager : MonoBehaviour
         gameLabel.SetActive(false);
         //상태를 '게임 중' 상태로 변경
         gState = GameState.Run;
-    }    
+    }
+
+    void Update()
+    {
+        //만일 플레이어의 hp가 0이라면
+        if(player.hp <= 0)
+        {
+            //상태 텍스트를 활성화
+            gameLabel.SetActive(true);
+            //상태 텍스트의 내용을 Game Over로 한다
+            gameText.text = "Game Over";
+
+            //상태 텍스트의 색상을 붉은색으로 한다
+            gameText.color = new Color32(255, 0, 0, 255);
+
+            //상태를 '게임 오버' 상태로 변경
+            gState = GameState.GameOver;
+        }
+    }
 }
