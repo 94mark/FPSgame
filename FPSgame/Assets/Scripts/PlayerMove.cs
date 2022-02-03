@@ -15,11 +15,15 @@ public class PlayerMove : MonoBehaviour
     int maxHp = 20; //최대 체력 변수
     public Slider hpSlider; //hp 슬라이더 변수
     public GameObject hitEffect; //Hit 효과 오브젝트
+    Animator anim; //애니메이터 변수
 
     void Start()
     {
         //캐릭터 컨트롤러 컴포넌트
         cc = GetComponent<CharacterController>();
+
+        //애니메이터 받아오기
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -37,6 +41,9 @@ public class PlayerMove : MonoBehaviour
         //2. 이동 방향 설정
         Vector3 dir = new Vector3(h, 0, v);
         dir = dir.normalized;
+
+        //이동 블렌딩 트리를 호출하고 벡터의 크기 값을 넘겨준다
+        anim.SetFloat("MoveMotion", dir.magnitude);
 
         //2-1. 메인 카메라를 기준으로 방향 변환
         dir = Camera.main.transform.TransformDirection(dir);
