@@ -19,10 +19,16 @@ public class PlayerFire : MonoBehaviour
 
     void Update()
     {
+        //게임 상태가 '게임 중' 상태일 때만 조작할 수 있게 한다
+        if (GameManager.gm.gState != GameManager.GameState.Run)
+        {
+            return;
+        }
+
         // 마우스 오른쪽 버튼을 누르면 시선이 바라보는 방향으로 수류탄을 던진다
 
         //1. 마우스 오른쪽 버튼 입력
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             //수류탄 오브젝트를 생성한 후 수류탄의 생성 위치를 발사 위치로 한다
             GameObject bomb = Instantiate(bombFactory);

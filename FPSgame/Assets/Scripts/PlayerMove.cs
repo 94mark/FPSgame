@@ -24,6 +24,12 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        //게임 상태가 '게임 중' 상태일 때만 조작할 수 있게 한다
+        if(GameManager.gm.gState != GameManager.GameState.Run)
+        {
+            return;
+        }
+
         //1. 사용자 입력
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
