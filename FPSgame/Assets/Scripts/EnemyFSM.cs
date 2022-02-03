@@ -30,6 +30,7 @@ public class EnemyFSM : MonoBehaviour
     public int hp = 15; //에너미의 체력
     int maxHp = 15; //에너미의 최대 체력
     public Slider hpSlider; //에너미 hp Slider 변수
+    Animator anim; //애니메이터 변수
 
 
     void Start()
@@ -45,6 +46,9 @@ public class EnemyFSM : MonoBehaviour
 
         //자신의 초기 위치 저장
         originPos = transform.position;
+
+        //자식 오브젝트로부터 애니메이터 변수 받아오기
+        anim = transform.GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -83,6 +87,9 @@ public class EnemyFSM : MonoBehaviour
         {
             m_State = EnemyState.Move;
             print("상태 전환 : Idle -> Move");
+
+            //이동 애니메이션으로 전환하기
+            anim.SetTrigger("IdleToMove");
         }
     }
     void Move()
