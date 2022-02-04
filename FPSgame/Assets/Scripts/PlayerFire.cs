@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFire : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerFire : MonoBehaviour
     ParticleSystem ps; //피격 에픽트 파티클 시스템
     public int weaponPower = 5; //발사 무기 공격력
     Animator anim; //애니메이터 변수
+    public Text wModeText; //무기 모드 텍스트
+
 
     //무기 모드 변수
     enum WeaponMode
@@ -121,11 +124,15 @@ public class PlayerFire : MonoBehaviour
             wMode = WeaponMode.Normal;
             //카메라 화면을 다시 원래대로 돌려준다
             Camera.main.fieldOfView = 60f;
+            //일반 모드 텍스트 출력
+            wModeText.text = "Normal Mode";
         }
         //만일 키보드의 숫자 2번 입력을 받으면 무기 모드를 스나이퍼 모드로 변경
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             wMode = WeaponMode.Sniper;
+            //스나이퍼 모드 텍스트 출력
+            wModeText.text = "Sniper Mode";
         }
     }
 }
