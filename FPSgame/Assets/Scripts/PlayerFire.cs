@@ -12,12 +12,24 @@ public class PlayerFire : MonoBehaviour
     public int weaponPower = 5; //발사 무기 공격력
     Animator anim; //애니메이터 변수
 
+    //무기 모드 변수
+    enum WeaponMode
+    {
+        Normal,
+        Sniper
+    }
+    WeaponMode wMode;
+    bool ZoomMode = false; //카메라 확대 확인용 변수
+
+
     void Start()
     {
         //피격 이펙트 오브젝트에서 파티클 시스템 컴포넌트 
         ps = bulletEffect.GetComponent<ParticleSystem>();
         //애니메이터 컴포넌트 가져오기
         anim = GetComponentInChildren<Animator>();
+        //무기 기본 모드를 노멀 모드로 설정
+        wMode = WeaponMode.Normal;
     }
 
     void Update()
@@ -28,24 +40,44 @@ public class PlayerFire : MonoBehaviour
             return;
         }
 
-        // 마우스 오른쪽 버튼을 누르면 시선이 바라보는 방향으로 수류탄을 던진다
+        //노멀 모드 : 마우스 오른쪽 버튼을 누르면 시선이 바라보는 방향으로 수류탄을 던진다
+        //스나이퍼 모드 : 마우스 오른쪽 버튼을 누르면 화면 확대
 
-        //1. 마우스 오른쪽 버튼 입력
-        if (Input.GetMouseButtonDown(1))
+        //마우스 오른쪽 버튼 입력
+        if(Input.GetMouseButtonDown(1))
         {
-            //수류탄 오브젝트를 생성한 후 수류탄의 생성 위치를 발사 위치로 한다
-            GameObject bomb = Instantiate(bombFactory);
-            bomb.transform.position = firePosition.transform.position;
+            switch(wMode)
+            {
+                case WeaponMode.Normal:
+                    //수류탄 오브젝트를 생성한 후 수류탄의 생성 위치를 발사 위치로 한다
+                    GameObject bomb = Instantiate(bombFactory);
+                    bomb.transform.position = firePosition.transform.position;
 
-            //수류탄 오브젝트의 Rigidbody 컴포넌트 
-            Rigidbody rb = bomb.GetComponent<Rigidbody>();
+                    //수류탄 오브젝트의 Rigidbody 컴포넌트 
+                    Rigidbody rb = bomb.GetComponent<Rigidbody>();
 
-            //카메라의 정면 방향으로 수류탄에 물리적 힘을 가함
-            rb.AddForce(Camera.main.transform.forward * throwPower, ForceMode.Impulse);
-        }
+                    //카메라의 정면 방향으로 수류탄에 물리적 힘을 가함
+                    rb.AddForce(Camera.main.transform.forward * throwPower, ForceMode.Impulse);
+
+                    break;
+                case WeaponMode.Sniper:
+                    //카메라를 확대하고 줌모드 상태로 변경
+                    if(!ZoomMode)
+                    {
+                        Camera.main.fieldOfView = 15f;
+                        ZoomMode = true;
+                    }
+                    //그렇지 않으면 카메라를 원래 상태로 되돌리고 줌 모드 상태 해제
+                    else
+                    {
+                        Camera.main.fieldOfView = 60f;
+                        ZoomMode = false;
+                    }
+                    break;
+            }
+        }    
 
         //마우스 왼쪽 버튼을 누르면 시선이 바라보는 방향으로 총 발사
-
         //마우스 왼쪽 버튼 입력
         if(Input.GetMouseButtonDown(0))
         {
