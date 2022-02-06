@@ -120,8 +120,12 @@ public class GameManager : MonoBehaviour
     {
         //게임 속도를 1배속으로 전환
         Time.timeScale = 1f;
+
         //현재 씬 번호를 다시 로드
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        //로딩 화면 씬을 로드
+        SceneManager.LoadScene(1);
     }
     //게임 종료 옵션
     public void QuitGame()
