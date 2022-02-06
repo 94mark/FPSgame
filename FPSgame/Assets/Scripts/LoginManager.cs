@@ -23,7 +23,18 @@ public class LoginManager : MonoBehaviour
     //아이디와 패스워드 저장 함수
     public void SaveUserData()
     {
-        //사용자의 아이디는 키(key)로 패스워드를 값(value)으로 설정해 저장
-        PlayerPrefs.SetString(id.text, password.text);
+        //만일 시스템에 저장돼 있는 아이디가 존재하지 않는다면
+        if(!PlayerPrefs.HasKey(id.text))
+        {
+            //사용자의 아이디는 키(key)로 패스워드를 값(value)으로 설정해 저장
+            PlayerPrefs.SetString(id.text, password.text);
+            notify.text = "아이디 생성이 완료됐습니다";
+        }
+        //그렇지 않으면 이미 존재한다는 메시지 출력
+        else
+        {
+            notify.text = "이미 존재하는 아이디입니다";
+        }
+        
     }
 }
