@@ -34,7 +34,25 @@ public class LoginManager : MonoBehaviour
         else
         {
             notify.text = "이미 존재하는 아이디입니다";
+        }        
+    }
+
+    //로그인 함수
+    public void CheckUserData()
+    {
+        //사용자가 입력한 아이디를 키로 사용해 시스템에 저장된 값을 불러옴
+        string pass = PlayerPrefs.GetString(id.text);
+
+        //만일 사용자가 입력한 패스워드와 시스템에서 불러온 값을 비교해 동일하다면
+        if (password.text == pass)
+        {
+            //다음 씬(1번 씬) 로드
+            SceneManager.LoadScene(1);
         }
-        
+        //그렇지 않고 두 데이터의 값이 다르면, 사용자 정보 불일치 메시지를 남긴다
+        else
+        {
+            notify.text = "입력하신 아이디와 패스워드가 일치하지 않습니다";
+        }
     }
 }
