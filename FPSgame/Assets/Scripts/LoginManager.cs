@@ -56,4 +56,18 @@ public class LoginManager : MonoBehaviour
             notify.text = "입력하신 아이디와 패스워드가 일치하지 않습니다";
         }
     }
+    bool CheckInput(string id, string pwd)
+    {
+        //만일 아이디와 패스워드 입력란이 하나라도 비어 있으면 사용자 정보 입력을 요구
+        if(id == "" || pwd == "")
+        {
+            notify.text = "아이디 또는 패스워드를 입력해주세요";
+            return false;
+        }
+        //입력이 비어 있지 않으면 true 반환
+        else
+        {
+            return true;
+        }
+    }
 }
