@@ -24,6 +24,11 @@ public class LoginManager : MonoBehaviour
     //아이디와 패스워드 저장 함수
     public void SaveUserData()
     {
+        //만일 입력 검사에 문제가 있으면 함수 종료
+        if(!CheckInput(id.text, password.text))
+        {
+            return;
+        }
         //만일 시스템에 저장돼 있는 아이디가 존재하지 않는다면
         if(!PlayerPrefs.HasKey(id.text))
         {
@@ -41,6 +46,11 @@ public class LoginManager : MonoBehaviour
     //로그인 함수
     public void CheckUserData()
     {
+        //만일 입력 검사에 문제가 있으면 함수 종료
+        if(!CheckInput(id.text,password.text))
+        {
+            return;
+        }
         //사용자가 입력한 아이디를 키로 사용해 시스템에 저장된 값을 불러옴
         string pass = PlayerPrefs.GetString(id.text);
 
