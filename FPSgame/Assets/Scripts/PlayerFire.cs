@@ -23,6 +23,8 @@ public class PlayerFire : MonoBehaviour
     //마우스 오른쪽 버튼 클릭 아이콘 스프라이트 변수
     public GameObject weapon01_R;
     public GameObject weapon02_R;
+    //마우스 우클릭 줌 모드 스프라이트 변수
+    public GameObject crosshair02_zoom;
 
 
     //무기 모드 변수
@@ -79,12 +81,18 @@ public class PlayerFire : MonoBehaviour
                     {
                         Camera.main.fieldOfView = 15f;
                         ZoomMode = true;
+                        //줌 모드일 때 크로스헤어 변경
+                        crosshair02_zoom.SetActive(true);
+                        crosshair02.SetActive(false);
                     }
                     //그렇지 않으면 카메라를 원래 상태로 되돌리고 줌 모드 상태 해제
                     else
                     {
                         Camera.main.fieldOfView = 60f;
                         ZoomMode = false;
+                        //크로스헤어를 스나이퍼 모드로 돌려놓음
+                        crosshair02_zoom.SetActive(false);
+                        crosshair02.SetActive(true);
                     }
                     break;
             }
@@ -134,6 +142,9 @@ public class PlayerFire : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             wMode = WeaponMode.Normal;
+
+            //스나이퍼 모드에서 일반 모드 키 입력 시 zoom 비활성화, 줌모드 해제
+            crosshair02_zoom.SetActive(false);
             //카메라 화면을 다시 원래대로 돌려준다
             Camera.main.fieldOfView = 60f;
             //일반 모드 텍스트 출력
