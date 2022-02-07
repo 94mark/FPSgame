@@ -759,6 +759,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7890453158041626645, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d5ee2c2579913a4e826184a7e3528a0, type: 3}
+    - target: {fileID: 7890453158041626645, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.12482198
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158041626645, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.12482198
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158041626645, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.14150941
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158367834343, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158367834343, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158367834343, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 7890453158473899536, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -806,6 +834,26 @@ PrefabInstance:
     - target: {fileID: 7890453158473899549, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158717180934, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158717180934, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: efa77a64a5bb7674ea56cdf2de512819, type: 3}
+    - target: {fileID: 7890453158717180934, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158717180934, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890453158717180934, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7890453158717180935, guid: 25ba658613dcd9047a8e5900da6b3bc2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1405,7 +1453,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 9d5ee2c2579913a4e826184a7e3528a0, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2671,11 +2719,11 @@ RectTransform:
   m_Father: {fileID: 75348748}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -175}
-  m_SizeDelta: {x: 300, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: 500, y: 80}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1627704566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3206,7 +3254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3214,7 +3262,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: efa77a64a5bb7674ea56cdf2de512819, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
