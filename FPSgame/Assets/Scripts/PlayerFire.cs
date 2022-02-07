@@ -20,6 +20,9 @@ public class PlayerFire : MonoBehaviour
     //크로스헤어 스프라이트 변수
     public GameObject crosshair01;
     public GameObject crosshair02;
+    //마우스 오른쪽 버튼 클릭 아이콘 스프라이트 변수
+    public GameObject weapon01_R;
+    public GameObject weapon02_R;
 
 
     //무기 모드 변수
@@ -140,6 +143,9 @@ public class PlayerFire : MonoBehaviour
             weapon02.SetActive(false);
             crosshair01.SetActive(true);
             crosshair02.SetActive(false);
+            //Weapon01_R는 활성화되고, Weapon02_R은 비활성화
+            weapon01_R.SetActive(true);
+            weapon02_R.SetActive(false);
         }
         //만일 키보드의 숫자 2번 입력을 받으면 무기 모드를 스나이퍼 모드로 변경
         else if(Input.GetKeyDown(KeyCode.Alpha2))
@@ -152,6 +158,9 @@ public class PlayerFire : MonoBehaviour
             weapon02.SetActive(true);
             crosshair01.SetActive(false);
             crosshair02.SetActive(true);
+            //Weapon01_R은 비활성화, Weapon02_R은 활성화
+            weapon01_R.SetActive(false);
+            weapon02_R.SetActive(true);
         }
     }
     //총구 이펙트 코루틴 함수
