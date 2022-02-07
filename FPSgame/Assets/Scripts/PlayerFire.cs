@@ -14,6 +14,12 @@ public class PlayerFire : MonoBehaviour
     Animator anim; //애니메이터 변수
     public Text wModeText; //무기 모드 텍스트
     public GameObject[] eff_Flash; //총 발사 효과 오브젝트 배열
+    //무기 아이콘 스프라이트 변수
+    public GameObject weapon01;
+    public GameObject weapon02;
+    //크로스헤어 스프라이트 변수
+    public GameObject crosshair01;
+    public GameObject crosshair02;
 
 
     //무기 모드 변수
@@ -129,6 +135,11 @@ public class PlayerFire : MonoBehaviour
             Camera.main.fieldOfView = 60f;
             //일반 모드 텍스트 출력
             wModeText.text = "Normal Mode";
+            //1번 스프라이트는 활성화되고, 2번 스프라이트는 비활성화된다
+            weapon01.SetActive(true);
+            weapon02.SetActive(false);
+            crosshair01.SetActive(true);
+            crosshair02.SetActive(false);
         }
         //만일 키보드의 숫자 2번 입력을 받으면 무기 모드를 스나이퍼 모드로 변경
         else if(Input.GetKeyDown(KeyCode.Alpha2))
@@ -136,6 +147,11 @@ public class PlayerFire : MonoBehaviour
             wMode = WeaponMode.Sniper;
             //스나이퍼 모드 텍스트 출력
             wModeText.text = "Sniper Mode";
+            //1번 스프라이트는 비활성화되고, 2번 스프라이트는 활성화된다
+            weapon01.SetActive(false);
+            weapon02.SetActive(true);
+            crosshair01.SetActive(false);
+            crosshair02.SetActive(true);
         }
     }
     //총구 이펙트 코루틴 함수
