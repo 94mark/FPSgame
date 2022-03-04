@@ -50,7 +50,7 @@
 ### 3.5 GameManager 관리
 - 게임 매니저 클래스를 싱글턴 패턴으로 구현
 - '게임 중' 상태가 아닐 시, 플레이어 이동/회전/무기 발사 및 카메라 회전 조작 제한
-### 그래픽 개선
+### 3.6 그래픽 개선
 - FX_Fire(불꽃) / FX_Smoke(연기) 파티클 오브젝트를 커스터마이징하여 레벨 디자인 향상 
 - 라이트 맵핑(Light Mapping)을 통해 성능 개선, Directional Light를 Mixed로 설정하여 Generate Lighting
 - Light Probe를 세팅하여 Player 중심의 조명 효과 구현
