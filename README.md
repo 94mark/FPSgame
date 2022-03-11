@@ -1,4 +1,6 @@
 # 1인칭 슈팅 3D FPS 게임 데모 제작
+![image](https://user-images.githubusercontent.com/90877724/157864897-52178650-07ac-4e6b-ab39-6a328bfa0cde.png)
+![image2](https://user-images.githubusercontent.com/90877724/157864908-e0527e30-0df9-47ec-9925-e84bfcaca781.png)
 ## 1. 프로젝트 개요
 ### 1.1 개발 인원/기간 및 포지션
 - 1인, 총 5일 소요
